@@ -1,3 +1,5 @@
+from numpy import * 
+
 def findXY(im):
     width = im.size[0]
     height = im.size[1]
@@ -19,6 +21,6 @@ def findXY(im):
     y4 = cy + .25 * height
 
     # these are column vectors
-    X = array([x1, x2, x3, x4])
-    Y = array([y1, y2, y3, y4])
+    X = array('f',[x1, x2, x3, x4])
+    Y = array('f',[y1, y2, y3, y4])
     return (X,Y)

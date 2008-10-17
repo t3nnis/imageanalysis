@@ -74,6 +74,6 @@ def BoundMirrorEnsure(A):
     B[ix_(yi,[0,n-1])] = B[ix_(yi,[2,n-3])] # mirror top and bottom boundary
     return B
 
-A = mat("1 2 3 11; 4 5 6 12; 7 8 9 13")
-print A
-print BoundMirrorExpand(A)
+#A = mat("1 2 3 11; 4 5 6 12; 7 8 9 13")
+#print A
+#print BoundMirrorExpand(A)

@@ -4,31 +4,37 @@
 from numpy import *
 from scipy import *
 import sys
-sys.path.append(r"/home/cens/www/Snake/")
-from snakeMethods import *
+#sys.path.append(r"/home/cens/www/Snake/")
+#from snakeMethods import *
 from GVF import *
 from matplotlib import *
-#from reading_pgms import *
-from imdisp import *
+from reading_pgm import *
+#from imdisp import *
 from BoundMirror import *
 from PIL import Image as image
-from del2_5 import *
-from snakedeform2 import *
+#from del2_5 import *
+from snakedeform import *
+from findXY import *
+
 
 def gvfmain():
     # X is an array
-    im = image.open("gray.jpg") # Bredan insert file loop
+    im = image.open("sensor_small.png") # Bredan insert file loop
     #m = im.size[0]; n = im.size[1]
-    
+		
+ 
     #I = array(list(im.getdata()))
     I = zeros((im.size[0],im.size[1]))
     for x in range(im.size[0]):
         for y in range(im.size[1]):
-            I[x][y]= im.getpixel((x,y))
-    print I 
+			[a,b,c,d] = im.getpixel((x,y))
+			I[x][y] = [a,b,c]  
+	    
+    print I[25][63] 
     # compute edge map, f
     print "Computing edge map..." 
-    f = array(1-(I/255.0))
+     
+    f = array(1 - (I/255.0))
     print "I= ", I
     print "f = ", f
     
@@ -75,8 +81,8 @@ def gvfmain():
     print 'Final result,  iter = ' + str(i*5)
 
 
-im = image.open("gray.jpg") # add loop
-X, Y = findXY(im) # still in jpeg format
+#im = image.open("sensor_sample.png") # add loop
+#X, Y = findXY(im) # still in jpeg format
 # convert to pgm
 gvfmain()
     
